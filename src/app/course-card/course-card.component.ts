@@ -8,20 +8,15 @@ import { Course } from '../model/course';
 })
 export class CourseCardComponent implements OnInit {
 
-  @Input('courseAlias') 
+  @Input() 
   course: Course;
 
-  @Output('customEvent')
-  courseSelected = new EventEmitter<Course>();
+  @Input() 
+  cardIndex: number;
 
   constructor() { }
 
   ngOnInit(): void {
   }
   
-  onCourseView(){
-    console.log("card component - button clicked...");
-
-    this.courseSelected.emit(this.course);
-  }
 }
