@@ -9,6 +9,10 @@ import { Course } from './model/course';
 })
 export class AppComponent {
 
+  startDate = new Date(2022, 0, 23);
+
   courses:Course[] = COURSES;
+
+  course:Course = COURSES[0]; 
 
 }

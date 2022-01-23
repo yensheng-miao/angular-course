@@ -11,12 +11,15 @@ export class CourseCardComponent implements OnInit {
   @Input() 
   course: Course;
 
-  @Input() 
-  cardIndex: number;
-
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  cardStyles(){
+    return{
+      'background-image': 'url('+ this.course.iconUrl +')'
+    }
   }
   
 }
