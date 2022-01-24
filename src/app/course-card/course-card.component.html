@@ -1,42 +1,18 @@
-<!-- A wrapping element to apply out structural directive -->
-<ng-container *ngIf="course">
+<div class="course-card">
 
-    <!-- passing into ngClass a string (not recommended)-->
-    <!-- <div [ngClass]="'course-card beginner'"> -->
-
-    <!-- passing into ngClass an array of class names strings -->
-    <!-- <div [ngClass]="['course-card', 'beginner']"> -->
-
-    <!-- passing into ngClass a configuration object -->
-    <!-- able to call a method that returns a configuration object -->
-    <div class="course-card" [ngClass]="{'beginner': course.category === 'BEGINNER'}">
-
-        <!-- <div class="course-title" [style.text-decoration]="'underline'"> -->
-        <div class="course-title" [ngStyle]="cardStyles()">
-            {{ course.description }}
-        </div>
-
-        <img width="300" 
-            alt="Angular Logo"
-            [src]="course.iconUrl"
-        >
-
-        <div class="course-description">
-            {{course.longDescription}}
-        </div>
-
-        <div class="course-category" [ngSwitch]="course.category">
-
-            <ng-container *ngSwitchCase="'BEGINNER'">
-                <div class="category"> Beginner</div>
-            </ng-container>
-
-
-            <div class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</div>
-            <div class="category" *ngSwitchCase="'ADVANCED'">Advanced</div>
-            <div class="category" *ngSwitchDefault>All Levels</div>
-
-        </div>
-
+    <div class="course-title">
+        {{ course.description }}
     </div>
-</ng-container>
+
+    <img width="300" 
+        alt="Angular Logo"
+        [src]="course.iconUrl"
+    >
+
+    <div class="course-description">
+        {{course.longDescription}}
+    </div>
+
+    <button (click)="onCourseClicked()">View Course</button>
+
+</div>

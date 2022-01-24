@@ -11,15 +11,16 @@ export class CourseCardComponent implements OnInit {
   @Input() 
   course: Course;
 
+  @Output()
+  courseSelected = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  cardStyles(){
-    return{
-      'background-image': 'url('+ this.course.iconUrl +')'
-    }
+  onCourseClicked(){
+    this.courseSelected.emit(this.course);
   }
   
 }
